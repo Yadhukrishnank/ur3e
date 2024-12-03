@@ -3,6 +3,6 @@
 
     <!-- Include macros for the UR3e and the Robotiq 2f-85 gripper -->
     <xacro:include filename="$(find ur3e_description)/urdf/ur.urdf.xacro" />
-    <xacro:include filename="$(find ur3e_description)/urdf/robotiq_gripper.urdf.xacro" />
-    <!-- <xacro:include filename="$(find ur3e_description)/urdf/ur.ros2_controll.xacro" /> -->
+    <!-- <xacro:include filename="$(find ur3e_description)/urdf/robotiq_gripper.urdf.xacro" /> -->
+    <xacro:include filename="$(find ur3e_description)/urdf/ur.ros2_controll.xacro" />
 </robot>
