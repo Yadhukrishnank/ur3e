@@ -1,10 +1,11 @@
+
 FROM osrf/ros:humble-desktop-full
 ARG USERNAME=USERNAME
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 # Delete user if it exists in container (e.g., Ubuntu Noble: ubuntu)
-RUN if id -u $USER_UID ; then userdel id -un $USER_UID ; fi
+RUN if id -u $USER_UID ; then userdel `id -un $USER_UID` ; fi
 
 # Create the user
 RUN groupadd --gid $USER_GID $USERNAME \
@@ -50,8 +51,9 @@ RUN apt-get update && apt-get install -y \
     #ur_dependencies
 
 RUN apt-get update && apt-get install -y \
-    ros-humble-ur \
     ros-humble-robotiq-description \
+    ros-humble-ur-client-library \
+    ros-humble-ur-controllers \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

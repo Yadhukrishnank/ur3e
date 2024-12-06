@@ -1,1 +1,0 @@
-/home/yadhu/ur3e/build/ur3e_description/ament_cmake_environment_hooks/local_setup.bash

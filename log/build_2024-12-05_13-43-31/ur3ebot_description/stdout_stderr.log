@@ -1,0 +1,26 @@
+-- Install configuration: ""
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/urdf
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/urdf/ur.ros2_control.xacro
+-- Installing: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/urdf/ur.urdf.xacro
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/config
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/config/ur_controllers.yaml
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/config/ur3e_update_rate.yaml
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/config/test_velocity_goal_publishers_config.yaml
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/config/test_goal_publishers_config.yaml
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/ur_robot_driver
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/ur_robot_driver/__init__.py
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ament_index/resource_index/package_run_dependencies/ur3ebot_description
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ament_index/resource_index/parent_prefix_path/ur3ebot_description
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/environment/ament_prefix_path.sh
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/environment/path.sh
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/environment/path.dsv
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/local_setup.bash
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/local_setup.sh
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/local_setup.zsh
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/local_setup.dsv
+-- Installing: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/package.dsv
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ament_index/resource_index/packages/ur3ebot_description
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/cmake/ur3ebot_descriptionConfig.cmake
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/cmake/ur3ebot_descriptionConfig-version.cmake
+-- Up-to-date: /home/yadhu/ur3e/install/ur3ebot_description/share/ur3ebot_description/package.xml

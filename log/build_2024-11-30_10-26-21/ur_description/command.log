@@ -1,2 +1,0 @@
-Invoking command in '/home/yadhu/ur3e/build/ur_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yadhu/ur3e/src/ur3e_description -DCMAKE_INSTALL_PREFIX=/home/yadhu/ur3e/install/ur_description
-Invoked command in '/home/yadhu/ur3e/build/ur_description' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yadhu/ur3e/src/ur3e_description -DCMAKE_INSTALL_PREFIX=/home/yadhu/ur3e/install/ur_description
