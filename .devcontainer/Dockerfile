@@ -53,7 +53,6 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && apt-get install -y \
     ros-humble-robotiq-description \
     ros-humble-ur-client-library \
-    ros-humble-ur-controllers \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

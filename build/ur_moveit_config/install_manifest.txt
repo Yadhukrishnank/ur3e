@@ -1,0 +1,15 @@
+/home/yadhu/ur3e/install/ur_moveit_config/share/ament_index/resource_index/package_run_dependencies/ur_moveit_config
+/home/yadhu/ur3e/install/ur_moveit_config/share/ament_index/resource_index/parent_prefix_path/ur_moveit_config
+/home/yadhu/ur3e/install/ur_moveit_config/share/ur_moveit_config/environment/ament_prefix_path.sh
+/home/yadhu/ur3e/install/ur_moveit_config/share/ur_moveit_config/environment/ament_prefix_path.dsv
+/home/yadhu/ur3e/install/ur_moveit_config/share/ur_moveit_config/environment/path.sh
+/home/yadhu/ur3e/install/ur_moveit_config/share/ur_moveit_config/environment/path.dsv
+/home/yadhu/ur3e/install/ur_moveit_config/share/ur_moveit_config/local_setup.bash
+/home/yadhu/ur3e/install/ur_moveit_config/share/ur_moveit_config/local_setup.sh
+/home/yadhu/ur3e/install/ur_moveit_config/share/ur_moveit_config/local_setup.zsh
+/home/yadhu/ur3e/install/ur_moveit_config/share/ur_moveit_config/local_setup.dsv
+/home/yadhu/ur3e/install/ur_moveit_config/share/ur_moveit_config/package.dsv
+/home/yadhu/ur3e/install/ur_moveit_config/share/ament_index/resource_index/packages/ur_moveit_config
+/home/yadhu/ur3e/install/ur_moveit_config/share/ur_moveit_config/cmake/ur_moveit_configConfig.cmake
+/home/yadhu/ur3e/install/ur_moveit_config/share/ur_moveit_config/cmake/ur_moveit_configConfig-version.cmake
+/home/yadhu/ur3e/install/ur_moveit_config/share/ur_moveit_config/package.xml
