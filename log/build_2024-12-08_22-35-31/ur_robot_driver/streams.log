@@ -1,0 +1,76 @@
+[0.007s] Invoking command in '/home/yadhu/ur3e/build/ur_robot_driver': CMAKE_PREFIX_PATH=/home/yadhu/ur3e/install/ur_description:/home/yadhu/ur3e/install/ur_robot_driver:/home/yadhu/ur3e/install/ur_moveit_config:/opt/ros/humble /usr/bin/cmake --build /home/yadhu/ur3e/build/ur_robot_driver -- -j16 -l16
+[0.023s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.106s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.148s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[0.163s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.163s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[0.163s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[0.168s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.168s] -- Configured cppcheck include dirs: 
+[0.168s] -- Configured cppcheck exclude dirs and/or files: 
+[0.168s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.169s] -- Added test 'lint_cmake' to check CMake code style
+[0.169s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.170s] -- Added test 'uncrustify' to check C / C++ code style
+[0.170s] -- Configured uncrustify additional arguments: 
+[0.170s] -- Added test 'xmllint' to check XML markup files
+[0.170s] -- Configuring done
+[0.172s] -- Generating done
+[0.172s] -- Build files have been written to: /home/yadhu/ur3e/build/ur_robot_driver
+[0.189s] Invoked command in '/home/yadhu/ur3e/build/ur_robot_driver' returned '0': CMAKE_PREFIX_PATH=/home/yadhu/ur3e/install/ur_description:/home/yadhu/ur3e/install/ur_robot_driver:/home/yadhu/ur3e/install/ur_moveit_config:/opt/ros/humble /usr/bin/cmake --build /home/yadhu/ur3e/build/ur_robot_driver -- -j16 -l16
+[0.203s] Invoking command in '/home/yadhu/ur3e/build/ur_robot_driver': CMAKE_PREFIX_PATH=/home/yadhu/ur3e/install/ur_description:/home/yadhu/ur3e/install/ur_robot_driver:/home/yadhu/ur3e/install/ur_moveit_config:/opt/ros/humble /usr/bin/cmake --install /home/yadhu/ur3e/build/ur_robot_driver
+[0.207s] -- Install configuration: ""
+[0.207s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/config
+[0.207s] -- Installing: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/config/ur_controllers.yaml
+[0.207s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/config/ur3e_update_rate.yaml
+[0.207s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/config/ur30_update_rate.yaml
+[0.207s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/config/test_velocity_goal_publishers_config.yaml
+[0.208s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/config/ur3_update_rate.yaml
+[0.208s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/config/test_goal_publishers_config.yaml
+[0.208s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/config/ur16e_update_rate.yaml
+[0.208s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/config/ur10e_update_rate.yaml
+[0.208s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/config/ur5_update_rate.yaml
+[0.208s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/config/ur20_update_rate.yaml
+[0.208s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/config/ur5e_update_rate.yaml
+[0.208s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/config/ur10_update_rate.yaml
+[0.208s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/include
+[0.208s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/include/ur_robot_driver
+[0.208s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/include/ur_robot_driver/hardware_interface.hpp
+[0.209s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/include/ur_robot_driver/dashboard_client_ros.hpp
+[0.209s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/include/ur_robot_driver/controller_stopper.hpp
+[0.209s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/include/ur_robot_driver/urcl_log_handler.hpp
+[0.209s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/src
+[0.209s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/src/ur_ros2_control_node.cpp
+[0.209s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/src/dashboard_client_node.cpp
+[0.209s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/src/controller_stopper.cpp
+[0.209s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/src/controller_stopper_node.cpp
+[0.210s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/src/urscript_interface.cpp
+[0.210s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/src/hardware_interface.cpp
+[0.210s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/src/urcl_log_handler.cpp
+[0.210s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/src/dashboard_client_ros.cpp
+[0.210s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/launch
+[0.210s] -- Installing: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/launch/controller.launch.py
+[0.211s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/launch/ur_control.launch.py
+[0.211s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/launch/test_joint_trajectory_controller.launch.py
+[0.211s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/launch/ur_dashboard_client.launch.py
+[0.211s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/launch/test_forward_velocity_controller.launch.py
+[0.211s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/launch/test_scaled_joint_trajectory_controller.launch.py
+[0.211s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/launch/ur3e.launch.py
+[0.211s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/ur_robot_driver
+[0.211s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/ur_robot_driver/__init__.py
+[0.211s] -- Installing: /home/yadhu/ur3e/install/ur_robot_driver/share/ament_index/resource_index/package_run_dependencies/ur_robot_driver
+[0.212s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ament_index/resource_index/parent_prefix_path/ur_robot_driver
+[0.212s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/environment/ament_prefix_path.sh
+[0.212s] -- Installing: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/environment/ament_prefix_path.dsv
+[0.212s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/environment/path.sh
+[0.212s] -- Installing: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/environment/path.dsv
+[0.213s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/local_setup.bash
+[0.213s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/local_setup.sh
+[0.213s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/local_setup.zsh
+[0.213s] -- Installing: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/local_setup.dsv
+[0.214s] -- Installing: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/package.dsv
+[0.214s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ament_index/resource_index/packages/ur_robot_driver
+[0.214s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/cmake/ur_robot_driverConfig.cmake
+[0.215s] -- Up-to-date: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/cmake/ur_robot_driverConfig-version.cmake
+[0.215s] -- Installing: /home/yadhu/ur3e/install/ur_robot_driver/share/ur_robot_driver/package.xml
+[0.215s] Invoked command in '/home/yadhu/ur3e/build/ur_robot_driver' returned '0': CMAKE_PREFIX_PATH=/home/yadhu/ur3e/install/ur_description:/home/yadhu/ur3e/install/ur_robot_driver:/home/yadhu/ur3e/install/ur_moveit_config:/opt/ros/humble /usr/bin/cmake --install /home/yadhu/ur3e/build/ur_robot_driver

@@ -1,0 +1,198 @@
+-- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found robotiq_description: 0.0.1 (/opt/ros/humble/share/robotiq_description/cmake)
+-- Found controller_manager: 2.44.0 (/opt/ros/humble/share/controller_manager/cmake)
+-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+-- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+-- Found rclpy: 3.3.14 (/opt/ros/humble/share/rclpy/cmake)
+-- Found tf2_geometry_msgs: 0.25.7 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/yadhu/ur3e/build/ur_description
+-- Install configuration: ""
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/urdf
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/urdf/ur.ros2_control.xacro
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/urdf/ur.urdf.xacro
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/urdf/ur_gripper.xacro
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/urdf/ur_macro.xacro
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/urdf/inc
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/urdf/inc/ur_common.xacro
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/urdf/inc/ur_transmissions.xacro
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/config
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/config/ur3e
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/config/ur3e/joint_limits.yaml
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/config/ur3e/visual_parameters.yaml
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/config/ur3e/physical_parameters.yaml
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/config/ur3e/default_kinematics.yaml
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/config/initial_positions.yaml
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/launch
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/launch/gazebo.launch.py
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/launch/view_ur.launch.py
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/collision
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/collision/wrist2.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/collision/base.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/collision/upperarm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/collision/forearm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/collision/wrist1.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/collision/shoulder.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/collision/wrist3.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/visual
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/visual/wrist2.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/visual/base.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/visual/wrist3.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/visual/upperarm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/visual/wrist1.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/visual/forearm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10e/visual/shoulder.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur30
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur30/LICENSE.txt
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur30/collision
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur30/collision/upperarm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur30/collision/forearm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur30/visual
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur30/visual/UR30_DIFF_8bit_2K.png
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur30/visual/upperarm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur30/visual/forearm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/collision
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/collision/wrist2.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/collision/base.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/collision/upperarm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/collision/forearm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/collision/wrist1.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/collision/shoulder.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/collision/wrist3.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/visual
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/visual/wrist2.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/visual/base.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/visual/wrist3.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/visual/upperarm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/visual/wrist1.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/visual/forearm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5e/visual/shoulder.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/collision
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/collision/wrist2.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/collision/base.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/collision/upperarm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/collision/forearm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/collision/wrist1.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/collision/shoulder.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/collision/wrist3.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/visual
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/visual/wrist2.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/visual/base.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/visual/wrist3.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/visual/upperarm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/visual/wrist1.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/visual/forearm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur5/visual/shoulder.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/collision
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/collision/wrist2.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/collision/base.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/collision/upperarm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/collision/forearm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/collision/wrist1.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/collision/shoulder.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/collision/wrist3.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/visual
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/visual/wrist2.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/visual/base.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/visual/wrist3.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/visual/upperarm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/visual/wrist1.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/visual/forearm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3e/visual/shoulder.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/collision
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/collision/wrist2.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/collision/base.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/collision/upperarm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/collision/forearm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/collision/wrist1.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/collision/shoulder.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/collision/wrist3.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/visual
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/visual/wrist2.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/visual/base.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/visual/wrist3.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/visual/upperarm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/visual/wrist1.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/visual/forearm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur10/visual/shoulder.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/LICENSE.txt
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/collision
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/collision/wrist2.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/collision/base.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/collision/upperarm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/collision/forearm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/collision/wrist1.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/collision/shoulder.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/collision/wrist3.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/visual
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/visual/wrist2.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/visual/base.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/visual/wrist3.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/visual/upperarm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/visual/wrist1.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/visual/forearm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/visual/UR20_DIFF_8bit_2K.png
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur20/visual/shoulder.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/collision
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/collision/wrist2.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/collision/base.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/collision/upperarm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/collision/forearm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/collision/wrist1.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/collision/shoulder.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/collision/wrist3.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/visual
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/visual/wrist2.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/visual/base.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/visual/wrist3.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/visual/upperarm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/visual/wrist1.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/visual/forearm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur3/visual/shoulder.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur16e
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur16e/collision
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur16e/collision/upperarm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur16e/collision/forearm.stl
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur16e/visual
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur16e/visual/upperarm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/meshes/ur16e/visual/forearm.dae
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/rviz
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/rviz/view_robot.rviz
+-- Installing: /home/yadhu/ur3e/install/ur_description/share/ament_index/resource_index/package_run_dependencies/ur_description
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ament_index/resource_index/parent_prefix_path/ur_description
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/environment/ament_prefix_path.sh
+-- Installing: /home/yadhu/ur3e/install/ur_description/share/ur_description/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/environment/path.sh
+-- Installing: /home/yadhu/ur3e/install/ur_description/share/ur_description/environment/path.dsv
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/local_setup.bash
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/local_setup.sh
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/local_setup.zsh
+-- Installing: /home/yadhu/ur3e/install/ur_description/share/ur_description/local_setup.dsv
+-- Installing: /home/yadhu/ur3e/install/ur_description/share/ur_description/package.dsv
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ament_index/resource_index/packages/ur_description
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/cmake/ur_descriptionConfig.cmake
+-- Up-to-date: /home/yadhu/ur3e/install/ur_description/share/ur_description/cmake/ur_descriptionConfig-version.cmake
+-- Installing: /home/yadhu/ur3e/install/ur_description/share/ur_description/package.xml
