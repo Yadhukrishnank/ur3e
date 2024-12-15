@@ -10,7 +10,11 @@ setup.py
 ../../build/pyfile/pyfile.egg-info/zip-safe
 pyfile/__init__.py
 pyfile/move.py
+pyfile.egg-info/PKG-INFO
+pyfile.egg-info/SOURCES.txt
+pyfile.egg-info/dependency_links.txt
+pyfile.egg-info/entry_points.txt
+pyfile.egg-info/requires.txt
+pyfile.egg-info/top_level.txt
+pyfile.egg-info/zip-safe
 resource/pyfile
-test/test_copyright.py
-test/test_flake8.py
-test/test_pep257.py
