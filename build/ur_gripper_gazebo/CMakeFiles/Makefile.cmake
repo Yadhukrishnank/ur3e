@@ -161,8 +161,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/ros/humble/share/ament_lint_common/cmake/ament_cmake_export_dependencies-extras.cmake"
   "/opt/ros/humble/share/ament_lint_common/cmake/ament_lint_commonConfig-version.cmake"
   "/opt/ros/humble/share/ament_lint_common/cmake/ament_lint_commonConfig.cmake"
-  "/opt/ros/humble/share/robotiq_description/cmake/robotiq_descriptionConfig-version.cmake"
-  "/opt/ros/humble/share/robotiq_description/cmake/robotiq_descriptionConfig.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeCCompiler.cmake.in"
   "/usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c"
   "/usr/share/cmake-3.22/Modules/CMakeCInformation.cmake"

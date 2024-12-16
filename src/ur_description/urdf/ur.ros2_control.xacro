@@ -3,7 +3,8 @@
 
   <xacro:macro name="ur_ros2_control" params="
     name
-    use_fake_hardware:=false fake_sensor_commands:=false
+    use_fake_hardware:=false
+    fake_sensor_commands:=false
     sim_gazebo:=false
     sim_ignition:=false
     headless_mode:=false
@@ -35,7 +36,6 @@
           <plugin>mock_components/GenericSystem</plugin>
           <param name="fake_sensor_commands">${fake_sensor_commands}</param>
           <param name="state_following_offset">0.0</param>
-          <param name="calculate_dynamics">true</param>
         </xacro:if>
         <xacro:unless value="${use_fake_hardware or sim_gazebo or sim_ignition}">
           <plugin>ur_robot_driver/URPositionHardwareInterface</plugin>
@@ -67,8 +67,14 @@
         </xacro:unless>
       </hardware>
       <joint name="${tf_prefix}shoulder_pan_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
+        <command_interface name="position">
+          <param name="min">{-2*pi}</param>
+          <param name="max">{2*pi}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">-3.15</param>
+          <param name="max">3.15</param>
+        </command_interface>
         <state_interface name="position">
           <!-- initial position for the FakeSystem and simulation -->
           <param name="initial_value">${initial_positions['shoulder_pan_joint']}</param>
@@ -77,8 +83,14 @@
         <state_interface name="effort"/>
       </joint>
       <joint name="${tf_prefix}shoulder_lift_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
+        <command_interface name="position">
+          <param name="min">{-2*pi}</param>
+          <param name="max">{2*pi}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">-3.15</param>
+          <param name="max">3.15</param>
+        </command_interface>
         <state_interface name="position">
           <!-- initial position for the FakeSystem and simulation -->
           <param name="initial_value">${initial_positions['shoulder_lift_joint']}</param>
@@ -87,8 +99,14 @@
         <state_interface name="effort"/>
       </joint>
       <joint name="${tf_prefix}elbow_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
+        <command_interface name="position">
+          <param name="min">{-pi}</param>
+          <param name="max">{pi}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">-3.15</param>
+          <param name="max">3.15</param>
+        </command_interface>
         <state_interface name="position">
           <!-- initial position for the FakeSystem and simulation -->
           <param name="initial_value">${initial_positions['elbow_joint']}</param>
@@ -97,8 +115,14 @@
         <state_interface name="effort"/>
       </joint>
       <joint name="${tf_prefix}wrist_1_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
+        <command_interface name="position">
+          <param name="min">{-2*pi}</param>
+          <param name="max">{2*pi}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">-3.2</param>
+          <param name="max">3.2</param>
+        </command_interface>
         <state_interface name="position">
           <!-- initial position for the FakeSystem and simulation -->
           <param name="initial_value">${initial_positions['wrist_1_joint']}</param>
@@ -107,8 +131,14 @@
         <state_interface name="effort"/>
       </joint>
       <joint name="${tf_prefix}wrist_2_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
+        <command_interface name="position">
+          <param name="min">{-2*pi}</param>
+          <param name="max">{2*pi}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">-3.2</param>
+          <param name="max">3.2</param>
+        </command_interface>
         <state_interface name="position">
           <!-- initial position for the FakeSystem and simulation -->
           <param name="initial_value">${initial_positions['wrist_2_joint']}</param>
@@ -117,8 +147,14 @@
         <state_interface name="effort"/>
       </joint>
       <joint name="${tf_prefix}wrist_3_joint">
-        <command_interface name="position"/>
-        <command_interface name="velocity"/>
+        <command_interface name="position">
+          <param name="min">{-2*pi}</param>
+          <param name="max">{2*pi}</param>
+        </command_interface>
+        <command_interface name="velocity">
+          <param name="min">-3.2</param>
+          <param name="max">3.2</param>
+        </command_interface>
         <state_interface name="position">
           <!-- initial position for the FakeSystem and simulation -->
           <param name="initial_value">${initial_positions['wrist_3_joint']}</param>
@@ -135,16 +171,6 @@
           <state_interface name="torque.x"/>
           <state_interface name="torque.y"/>
           <state_interface name="torque.z"/>
-        </sensor>
-
-        <sensor name="${tf_prefix}tcp_pose">
-          <state_interface name="position.x"/>
-          <state_interface name="position.y"/>
-          <state_interface name="position.z"/>
-          <state_interface name="orientation.x"/>
-          <state_interface name="orientation.y"/>
-          <state_interface name="orientation.z"/>
-          <state_interface name="orientation.w"/>
         </sensor>
 
         <!-- NOTE The following are joints used only for testing with fake hardware and will change in the future -->
@@ -177,7 +203,6 @@
 
           <command_interface name="standard_analog_output_cmd_0"/>
           <command_interface name="standard_analog_output_cmd_1"/>
-          <command_interface name="analog_output_domain_cmd"/>
 
           <command_interface name="tool_voltage_cmd"/>
 
@@ -292,12 +317,6 @@
           <state_interface name="initialized"/>
         </gpio>
 
-        <gpio name="${tf_prefix}get_robot_software_version">
-          <state_interface name="get_version_major"/>
-          <state_interface name="get_version_minor"/>
-          <state_interface name="get_version_build"/>
-          <state_interface name="get_version_bugfix"/>
-        </gpio>
       </xacro:unless>
 
     </ros2_control>

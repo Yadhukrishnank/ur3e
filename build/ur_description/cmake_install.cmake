@@ -44,11 +44,12 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_description" TYPE DIRECTORY FILES
-    "/home/yadhu/ur3e/src/ur_description/urdf"
     "/home/yadhu/ur3e/src/ur_description/config"
     "/home/yadhu/ur3e/src/ur_description/launch"
     "/home/yadhu/ur3e/src/ur_description/meshes"
     "/home/yadhu/ur3e/src/ur_description/rviz"
+    "/home/yadhu/ur3e/src/ur_description/urdf"
+    "/home/yadhu/ur3e/src/ur_description/test"
     )
 endif()
 

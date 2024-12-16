@@ -322,9 +322,6 @@ ament_pep257_BIN:FILEPATH=/opt/ros/humble/bin/ament_pep257
 //Path to a program.
 ament_xmllint_BIN:FILEPATH=/opt/ros/humble/bin/ament_xmllint
 
-//The directory containing a CMake configuration file for robotiq_description.
-robotiq_description_DIR:PATH=/opt/ros/humble/share/robotiq_description/cmake
-
 //Value Computed by CMake
 ur_gripper_gazebo_BINARY_DIR:STATIC=/home/yadhu/ur3e/build/ur_gripper_gazebo
 

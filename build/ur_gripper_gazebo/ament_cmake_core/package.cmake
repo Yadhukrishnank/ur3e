@@ -1,6 +1,6 @@
 set(_AMENT_PACKAGE_NAME "ur_gripper_gazebo")
 set(ur_gripper_gazebo_VERSION "0.0.0")
-set(ur_gripper_gazebo_MAINTAINER "yadhu <yadhu@todo.todo>")
+set(ur_gripper_gazebo_MAINTAINER "yong <dkeldltsi@gmail.com>")
 set(ur_gripper_gazebo_BUILD_DEPENDS )
 set(ur_gripper_gazebo_BUILDTOOL_DEPENDS "ament_cmake")
 set(ur_gripper_gazebo_BUILD_EXPORT_DEPENDS )

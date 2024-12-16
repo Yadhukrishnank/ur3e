@@ -8,7 +8,7 @@
   <license>TODO: License declaration</license>
 
   <depend>rclpy</depend>
-  <depend></depend>  
+  <depend>control_msgs</depend>  
   <depend>ur_description</depend>
   <depend>ur_gripper_gazebo</depend>
   <depend>controller_manager</depend>

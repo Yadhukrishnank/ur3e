@@ -33,7 +33,6 @@ from launch.actions import DeclareLaunchArgument
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
-from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
@@ -42,9 +41,9 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "ur_type",
-            default_value="ur3e",  # Default to ur3e
+            default_value="ur3",
             description="Type/series of used UR robot.",
-            choices=["ur3e", "ur5", "ur5e", "ur10", "ur10e", "ur16e", "ur20", "ur30"],
+            choices=["ur3", "ur3e", "ur5", "ur5e", "ur10", "ur10e", "ur16e", "ur20", "ur30"],
         )
     )
     declared_arguments.append(
@@ -73,8 +72,8 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "description_package",
             default_value="ur_description",
-            description="Description package with robot URDF/XACRO files. Usually the argument "
-            "is not set, it enables use of a custom description.",
+            description="Description package with robot URDF/XACRO files. Usually the argument \
+        is not set, it enables use of a custom description.",
         )
     )
     declared_arguments.append(
@@ -88,9 +87,9 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "tf_prefix",
             default_value='""',
-            description="Prefix of the joint names, useful for "
-            "multi-robot setup. If changed then also joint names in the controllers' configuration "
-            "have to be updated.",
+            description="Prefix of the joint names, useful for \
+        multi-robot setup. If changed than also joint names in the controllers' configuration \
+        have to be updated.",
         )
     )
 
@@ -129,9 +128,7 @@ def generate_launch_description():
             tf_prefix,
         ]
     )
-    robot_description = {
-        "robot_description": ParameterValue(value=robot_description_content, value_type=str)
-    }
+    robot_description = {"robot_description": robot_description_content}
 
     rviz_config_file = PathJoinSubstitution(
         [FindPackageShare(description_package), "rviz", "view_robot.rviz"]
