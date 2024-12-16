@@ -1,1 +1,2 @@
-/home/yadhu/ur3e/build/ur_gripper_gazebo/ament_cmake_environment_hooks/local_setup.dsv
+source;share/ur_gripper_gazebo/environment/ament_prefix_path.sh
+source;share/ur_gripper_gazebo/environment/path.sh

@@ -15,19 +15,20 @@ class FollowJointTrajectoryClient(Node):
     def send_goal(self):
         goal_msg = FollowJointTrajectory.Goal()
         
-        # Define joint names
+        # Define joint names (including robotiq_85_left_knuckle_joint)
         goal_msg.trajectory.joint_names = [
             'shoulder_pan_joint', 
             'shoulder_lift_joint', 
             'elbow_joint', 
             'wrist_1_joint', 
             'wrist_2_joint', 
-            'wrist_3_joint'
+            'wrist_3_joint',
+            'robotiq_85_left_knuckle_joint'  # Added joint
         ]
         
         # Define trajectory point
         point = JointTrajectoryPoint()
-        point.positions = [1.0, 1.0, 1.0, 1.0, 8.0, 1.0]  # Replace with valid positions for your robot
+        point.positions = [-1.0, -1.0, -1.0, 1.0, 0.0, 1.0, 0.65]  # Added position for robotiq_85_left_knuckle_joint
         point.time_from_start.sec = 6
         point.time_from_start.nanosec = 0
         
