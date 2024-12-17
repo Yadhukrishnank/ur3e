@@ -190,7 +190,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "controllers_file",
-            default_value="controllers.yaml",
+            default_value="ros2control_controllers.yaml",
             description="YAML file with the controllers configuration.",
         )
     )
