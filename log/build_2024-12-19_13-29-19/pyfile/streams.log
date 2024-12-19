@@ -1,0 +1,21 @@
+[0.510s] Invoking command in '/home/yadhu/ur3e/src/pyfile': CMAKE_PREFIX_PATH=/home/yadhu/ur3e/install/ur_gripper_gazebo:/home/yadhu/ur3e/install/ur_description:/home/yadhu/ur3e/install/ur_moveit_config:/home/yadhu/ur3e/install/cppfile:/home/yadhu/ur3e/install/robotiq_description PYTHONPATH=/home/yadhu/ur3e/build/pyfile/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yadhu/ur3e/install/pyfile/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/pyfile build --build-base /home/yadhu/ur3e/build/pyfile/build install --record /home/yadhu/ur3e/build/pyfile/install.log --single-version-externally-managed install_data
+[0.686s] running egg_info
+[0.686s] writing ../../build/pyfile/pyfile.egg-info/PKG-INFO
+[0.686s] writing dependency_links to ../../build/pyfile/pyfile.egg-info/dependency_links.txt
+[0.687s] writing entry points to ../../build/pyfile/pyfile.egg-info/entry_points.txt
+[0.687s] writing requirements to ../../build/pyfile/pyfile.egg-info/requires.txt
+[0.687s] writing top-level names to ../../build/pyfile/pyfile.egg-info/top_level.txt
+[0.688s] reading manifest file '../../build/pyfile/pyfile.egg-info/SOURCES.txt'
+[0.689s] writing manifest file '../../build/pyfile/pyfile.egg-info/SOURCES.txt'
+[0.689s] running build
+[0.689s] running build_py
+[0.689s] running install
+[0.690s] running install_lib
+[0.690s] running install_data
+[0.691s] running install_egg_info
+[0.691s] removing '/home/yadhu/ur3e/install/pyfile/lib/python3.10/site-packages/pyfile-0.0.0-py3.10.egg-info' (and everything under it)
+[0.691s] Copying ../../build/pyfile/pyfile.egg-info to /home/yadhu/ur3e/install/pyfile/lib/python3.10/site-packages/pyfile-0.0.0-py3.10.egg-info
+[0.692s] running install_scripts
+[0.710s] Installing move_bot script to /home/yadhu/ur3e/install/pyfile/lib/pyfile
+[0.710s] writing list of installed files to '/home/yadhu/ur3e/build/pyfile/install.log'
+[0.728s] Invoked command in '/home/yadhu/ur3e/src/pyfile' returned '0': CMAKE_PREFIX_PATH=/home/yadhu/ur3e/install/ur_gripper_gazebo:/home/yadhu/ur3e/install/ur_description:/home/yadhu/ur3e/install/ur_moveit_config:/home/yadhu/ur3e/install/cppfile:/home/yadhu/ur3e/install/robotiq_description PYTHONPATH=/home/yadhu/ur3e/build/pyfile/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yadhu/ur3e/install/pyfile/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/pyfile build --build-base /home/yadhu/ur3e/build/pyfile/build install --record /home/yadhu/ur3e/build/pyfile/install.log --single-version-externally-managed install_data

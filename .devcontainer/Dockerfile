@@ -45,6 +45,7 @@ RUN apt-get update && apt-get install -y \
     ros-humble-moveit-planners \
     ros-humble-moveit-ros-planning \
     ros-humble-moveit-ros-visualization \
+    ros-humble-warehouse-ros \
     && apt-get clean \  
     && rm -rf /var/lib/apt/lists/*
 
