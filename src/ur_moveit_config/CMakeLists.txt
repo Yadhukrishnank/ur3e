@@ -3,10 +3,6 @@ project(ur_moveit_config)
 
 find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_python REQUIRED)
-# find_package(robotiq_description REQUIRED)
-# find_package(urdf REQUIRED)
-# find_package(xacro REQUIRED)
-# find_package(ur_gripper_gazebo REQUIRED)
 
 install(DIRECTORY config launch rviz srdf
   DESTINATION share/${PROJECT_NAME}
