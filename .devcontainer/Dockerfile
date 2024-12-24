@@ -79,3 +79,5 @@ USER $USERNAME
 
 WORKDIR /home/$USERNAME/ur3e
 CMD ["/bin/bash"]
+
+EXPOSE 10000

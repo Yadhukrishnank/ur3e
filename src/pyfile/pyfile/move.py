@@ -28,7 +28,7 @@ class FollowJointTrajectoryClient(Node):
         
         # Define trajectory point
         point = JointTrajectoryPoint()
-        point.positions = [-1.0, -1.0, -1.0, 1.0, 0.0, 1.0, 0.65]  # Added position for robotiq_85_left_knuckle_joint
+        point.positions = [-1.0, -1.0, -1.0, 1.0, 0.0, 1.0, 1.0]  # Added position for robotiq_85_left_knuckle_joint
         point.time_from_start.sec = 6
         point.time_from_start.nanosec = 0
         

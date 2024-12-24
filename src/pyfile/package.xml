@@ -10,7 +10,6 @@
   <depend>rclpy</depend>
   <depend>control_msgs</depend>  
   <depend>ur_description</depend>
-  <depend>ur_gripper_gazebo</depend>
   <depend>controller_manager</depend>
   <depend>controller_manager_msgs</depend>
   <depend>geometry_msgs</depend>

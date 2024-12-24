@@ -190,7 +190,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "controllers_file",
-            default_value="ros2control_controllers.yaml",
+            default_value="ur_controllers.yaml",
             description="YAML file with the controllers configuration.",
         )
     )
@@ -205,7 +205,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "description_file",
-            default_value="ur_gripper.xacro",
+            default_value="ur.urdf.xacro",
             description="URDF/XACRO description file with the robot.",
         )
     )

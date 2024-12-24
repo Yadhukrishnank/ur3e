@@ -1,11 +1,50 @@
-from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
-from launch.actions import OpaqueFunction
-from launch.conditions import IfCondition
-from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
+# Copyright (c) 2021 PickNik, Inc.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+#    * Redistributions of source code must retain the above copyright
+#      notice, this list of conditions and the following disclaimer.
+#
+#    * Redistributions in binary form must reproduce the above copyright
+#      notice, this list of conditions and the following disclaimer in the
+#      documentation and/or other materials provided with the distribution.
+#
+#    * Neither the name of the {copyright_holder} nor the names of its
+#      contributors may be used to endorse or promote products derived from
+#      this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+#
+# Author: Denis Stogl
+
+import os
+
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from ur_moveit_config.launch_common import load_yaml
+
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, OpaqueFunction
+from launch.conditions import IfCondition
+from launch.substitutions import (
+    Command,
+    FindExecutable,
+    LaunchConfiguration,
+    PathJoinSubstitution,
+    OrSubstitution,
+)
 
 
 def launch_setup(context, *args, **kwargs):
@@ -19,8 +58,11 @@ def launch_setup(context, *args, **kwargs):
     # General arguments
     description_package = LaunchConfiguration("description_package")
     description_file = LaunchConfiguration("description_file")
-    ur_moveit_config = LaunchConfiguration("ur_moveit_config")
+    _publish_robot_description_semantic = LaunchConfiguration("publish_robot_description_semantic")
+    moveit_config_package = LaunchConfiguration("moveit_config_package")
+    moveit_joint_limits_file = LaunchConfiguration("moveit_joint_limits_file")
     moveit_config_file = LaunchConfiguration("moveit_config_file")
+    warehouse_sqlite_path = LaunchConfiguration("warehouse_sqlite_path")
     prefix = LaunchConfiguration("prefix")
     use_sim_time = LaunchConfiguration("use_sim_time")
     launch_rviz = LaunchConfiguration("launch_rviz")
@@ -93,7 +135,7 @@ def launch_setup(context, *args, **kwargs):
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
             PathJoinSubstitution(
-                [FindPackageShare(ur_moveit_config), "srdf", moveit_config_file]
+                [FindPackageShare(moveit_config_package), "srdf", moveit_config_file]
             ),
             " ",
             "name:=",
@@ -108,13 +150,20 @@ def launch_setup(context, *args, **kwargs):
     )
     robot_description_semantic = {"robot_description_semantic": robot_description_semantic_content}
 
+    publish_robot_description_semantic = {
+        "publish_robot_description_semantic": _publish_robot_description_semantic
+    }
+
     robot_description_kinematics = PathJoinSubstitution(
-        [FindPackageShare(ur_moveit_config), "config", "kinematics.yaml"]
+        [FindPackageShare(moveit_config_package), "config", "kinematics.yaml"]
     )
 
-    # robot_description_planning = {
-    # "robot_description_planning": load_yaml_abs(str(joint_limit_params.perform(context)))
-    # }
+    robot_description_planning = {
+        "robot_description_planning": load_yaml(
+            str(moveit_config_package.perform(context)),
+            os.path.join("config", str(moveit_joint_limits_file.perform(context))),
+        )
+    }
 
     # Planning Configuration
     ompl_planning_pipeline_config = {
@@ -130,7 +179,9 @@ def launch_setup(context, *args, **kwargs):
     # Trajectory Execution Configuration
     controllers_yaml = load_yaml("ur_moveit_config", "config/controllers.yaml")
     # the scaled_joint_trajectory_controller does not work on fake hardware
-    change_controllers = context.perform_substitution(use_fake_hardware)
+    change_controllers = context.perform_substitution(
+        OrSubstitution(use_fake_hardware, use_sim_time)
+    )
     if change_controllers == "true":
         controllers_yaml["scaled_joint_trajectory_controller"]["default"] = False
         controllers_yaml["joint_trajectory_controller"]["default"] = True
@@ -145,6 +196,8 @@ def launch_setup(context, *args, **kwargs):
         "trajectory_execution.allowed_execution_duration_scaling": 1.2,
         "trajectory_execution.allowed_goal_duration_margin": 0.5,
         "trajectory_execution.allowed_start_tolerance": 0.01,
+        # Execution time monitoring can be incompatible with the scaled JTC
+        "trajectory_execution.execution_duration_monitoring": False,
     }
 
     planning_scene_monitor_parameters = {
@@ -152,6 +205,11 @@ def launch_setup(context, *args, **kwargs):
         "publish_geometry_updates": True,
         "publish_state_updates": True,
         "publish_transforms_updates": True,
+    }
+
+    warehouse_ros_config = {
+        "warehouse_plugin": "warehouse_ros_sqlite::DatabaseConnection",
+        "warehouse_host": warehouse_sqlite_path,
     }
 
     # Start the actual move_group node/action server
@@ -162,32 +220,21 @@ def launch_setup(context, *args, **kwargs):
         parameters=[
             robot_description,
             robot_description_semantic,
+            publish_robot_description_semantic,
             robot_description_kinematics,
-            # robot_description_planning,
+            robot_description_planning,
             ompl_planning_pipeline_config,
             trajectory_execution,
             moveit_controllers,
             planning_scene_monitor_parameters,
             {"use_sim_time": use_sim_time},
+            warehouse_ros_config,
         ],
     )
 
-    # Warehouse mongodb server
-    # mongodb_server_node = Node(
-    #     package="warehouse_ros",
-    #     executable="warehouse_ros_server",  # Adjust executable if applicable
-    #     parameters=[
-    #         {"warehouse_port": 33829},  # Use appropriate port
-    #         {"warehouse_host": "localhost"},
-    #         {"warehouse_plugin": "warehouse_ros::DatabaseConnection"},  # Adjust plugin name
-    #     ],
-    #     output="screen",
-    # )
-
-
     # rviz with moveit configuration
     rviz_config_file = PathJoinSubstitution(
-        [FindPackageShare(ur_moveit_config), "rviz", "view_robot.rviz"]
+        [FindPackageShare(moveit_config_package), "rviz", "view_robot.rviz"]
     )
     rviz_node = Node(
         package="rviz2",
@@ -201,7 +248,11 @@ def launch_setup(context, *args, **kwargs):
             robot_description_semantic,
             ompl_planning_pipeline_config,
             robot_description_kinematics,
-            # robot_description_planning,
+            robot_description_planning,
+            warehouse_ros_config,
+            {
+                "use_sim_time": use_sim_time,
+            },
         ],
     )
 
@@ -217,13 +268,10 @@ def launch_setup(context, *args, **kwargs):
             robot_description,
             robot_description_semantic,
         ],
-        output={
-            "stdout": "screen",
-            "stderr": "screen",
-        },
+        output="screen",
     )
 
-    nodes_to_start = [move_group_node, rviz_node]
+    nodes_to_start = [move_group_node, rviz_node, servo_node]
 
     return nodes_to_start
 
@@ -235,16 +283,14 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "ur_type",
-            default_value="ur3e",
             description="Type/series of used UR robot.",
-            choices=["ur3", "ur3e", "ur5", "ur5e", "ur10", "ur10e", "ur16e"],
-            
+            choices=["ur3", "ur3e", "ur5", "ur5e", "ur10", "ur10e", "ur16e", "ur20", "ur30"],
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
             "use_fake_hardware",
-            default_value="true",
+            default_value="false",
             description="Indicate whether robot is running with fake hardware mirroring command to its states.",
         )
     )
@@ -274,23 +320,30 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "description_package",
             default_value="ur_description",
-            description="Description package with robot URDF/XACRO files. Usually the argument \
-        is not set, it enables use of a custom description.",
+            description="Description package with robot URDF/XACRO files. Usually the argument "
+            "is not set, it enables use of a custom description.",
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
             "description_file",
-            default_value="ur_gripper.xacro",
+            default_value="ur.urdf.xacro",
             description="URDF/XACRO description file with the robot.",
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
-            "ur_moveit_config",
+            "publish_robot_description_semantic",
+            default_value="True",
+            description="Whether to publish the SRDF description on topic /robot_description_semantic.",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "moveit_config_package",
             default_value="ur_moveit_config",
-            description="MoveIt config package with robot SRDF/XACRO files. Usually the argument \
-        is not set, it enables use of a custom moveit config.",
+            description="MoveIt config package with robot SRDF/XACRO files. Usually the argument "
+            "is not set, it enables use of a custom moveit config.",
         )
     )
     declared_arguments.append(
@@ -302,8 +355,22 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
+            "moveit_joint_limits_file",
+            default_value="joint_limits.yaml",
+            description="MoveIt joint limits that augment or override the values from the URDF robot_description.",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "warehouse_sqlite_path",
+            default_value=os.path.expanduser("~/.ros/warehouse_ros.sqlite"),
+            description="Path where the warehouse database should be stored",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
             "use_sim_time",
-            default_value="true",
+            default_value="false",
             description="Make MoveIt to use simulation time. This is needed for the trajectory planing in simulation.",
         )
     )
@@ -311,9 +378,9 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "prefix",
             default_value='""',
-            description="Prefix of the joint names, useful for \
-        multi-robot setup. If changed than also joint names in the controllers' configuration \
-        have to be updated.",
+            description="Prefix of the joint names, useful for "
+            "multi-robot setup. If changed than also joint names in the controllers' configuration "
+            "have to be updated.",
         )
     )
     declared_arguments.append(
