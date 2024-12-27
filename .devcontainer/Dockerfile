@@ -49,13 +49,6 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \  
     && rm -rf /var/lib/apt/lists/*
 
-    #ur_dependencies
-
-RUN apt-get update && apt-get install -y \
-    ros-humble-robotiq-description \
-    ros-humble-ur-client-library \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
 
     # Initialize and update rosdep
 RUN apt-get update && apt-get install -y \

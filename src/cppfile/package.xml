@@ -4,16 +4,19 @@
   <name>cppfile</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="yadhunandan97@gmail.com">yadhu</maintainer>
+  <maintainer email="yadhu@todo.todo">yadhu</maintainer>
   <license>TODO: License declaration</license>
 
-  <depend>rclcpp</depend>
-  <depend>rcl_interfaces</depend>
-  <depend>ur_description</depend>
-  <depend>moveit_ros_planning_interface</depend>
-
   <buildtool_depend>ament_cmake</buildtool_depend>
-  
+
+  <depend>rclcpp</depend>
+  <depend>ur_description</depend>
+  <depend>robotiq_description</depend>
+  <depend>rcl_interfaces</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>moveit_ros_planning_interface</depend>
+  <depend>unity_robotics_demo_msgs</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
