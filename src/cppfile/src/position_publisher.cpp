@@ -1,53 +1,53 @@
 #include <rclcpp/rclcpp.hpp>
-#include "unity_robotics_demo_msgs/msg/pos_rot.hpp" // Replace with your actual package name
+#include "unity_ros_msgs/msg/ur3e_moveit_joints.hpp" 
 
-class PositionPublisher : public rclcpp::Node
+class JointPositionPublisher : public rclcpp::Node
 {
 public:
-    PositionPublisher() : Node("position_publisher")
+    JointPositionPublisher() : Node("joint_position_publisher")
     {
-        // Create publisher to 'pos_rot' topic with message type PosRot
-        publisher_ = this->create_publisher<unity_robotics_demo_msgs::msg::PosRot>("pos_rot", 10);
+        // Create publisher to 'ur3e_moveit_joints' topic with message type UR3eMoveitJoints
+        publisher_ = this->create_publisher<unity_ros_msgs::msg::UR3eMoveitJoints>("ur3e_moveit_joints", 10);
 
-        // Timer for publishing the position at 0.5 Hz (every 2 seconds)
+        // Timer for publishing the joint positions at 0.5 Hz (every 2 seconds)
         timer_ = this->create_wall_timer(
             std::chrono::milliseconds(2000), // 2000 ms = 0.5 Hz
-            std::bind(&PositionPublisher::publish_position, this));
+            std::bind(&JointPositionPublisher::publish_joints, this));
     }
 
 private:
-    void publish_position()
+    void publish_joints()
     {
-        // Create a PosRot message
-        unity_robotics_demo_msgs::msg::PosRot msg;
+        // Create a UR3eMoveitJoints message
+        unity_ros_msgs::msg::UR3eMoveitJoints msg;
 
-        // Example position and rotation (replace with real data from an object)
-        msg.pos_x = 0.1;  // Example position X
-        msg.pos_y = 0.1;  // Example position Y
-        msg.pos_z = 0.1;  // Example position Z
+        // Example joint positions in radians for UR3e (6 joints)
+        msg.joints = {
+            1.0,  // shoulder_pan_joint
+            -1.57, // shoulder_lift_joint (approx -90 degrees)
+            1.57,  // elbow_joint (approx 90 degrees)
+            0.0,  // wrist_1_joint
+            0.0,  // wrist_2_joint
+            0.0   // wrist_3_joint
+        };
 
-        msg.rot_x = 0.1;  // Example rotation X
-        msg.rot_y = 0.0;  // Example rotation Y
-        msg.rot_z = 0.0;  // Example rotation Z
-        msg.rot_w = 1.0;  // Example rotation W (quaternion)
-
-        // Publish the message to the 'pos_rot' topic
+        // Publish the message to the 'ur3e_moveit_joints' topic
         publisher_->publish(msg);
 
-        // Log the published position and rotation
-        RCLCPP_INFO(this->get_logger(), "Published position: (%f, %f, %f), Rotation: (%f, %f, %f, %f)",
-                    msg.pos_x, msg.pos_y, msg.pos_z,
-                    msg.rot_x, msg.rot_y, msg.rot_z, msg.rot_w);
+        // Log the published joint positions
+        RCLCPP_INFO(this->get_logger(), "Published joint positions: [%.2f, %.2f, %.2f, %.2f, %.2f, %.2f]",
+                    msg.joints[0], msg.joints[1], msg.joints[2],
+                    msg.joints[3], msg.joints[4], msg.joints[5]);
     }
 
-    rclcpp::Publisher<unity_robotics_demo_msgs::msg::PosRot>::SharedPtr publisher_;
+    rclcpp::Publisher<unity_ros_msgs::msg::UR3eMoveitJoints>::SharedPtr publisher_;
     rclcpp::TimerBase::SharedPtr timer_;
 };
 
 int main(int argc, char *argv[])
 {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<PositionPublisher>());
+    rclcpp::spin(std::make_shared<JointPositionPublisher>());
     rclcpp::shutdown();
     return 0;
 }

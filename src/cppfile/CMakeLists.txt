@@ -9,6 +9,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(ur_description REQUIRED)
 find_package(unity_robotics_demo_msgs REQUIRED)
+find_package(unity_ros_msgs REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
@@ -17,12 +18,15 @@ find_package(rcl_interfaces REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 
 include_directories(${unity_robotics_demo_msgs_INCLUDE_DIRS})
+include_directories(${unity_msgs_INCLUDE_DIRS})
+
 
 add_executable(position_pub src/position_pub.cpp)
 ament_target_dependencies(position_pub
   rclcpp
   geometry_msgs
   unity_robotics_demo_msgs
+  unity_ros_msgs
   moveit_ros_planning_interface
 )
 
@@ -32,6 +36,7 @@ ament_target_dependencies(position_publisher
   rclcpp
   geometry_msgs
   unity_robotics_demo_msgs
+  unity_ros_msgs
   moveit_ros_planning_interface
 )
 

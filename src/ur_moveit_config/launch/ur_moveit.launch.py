@@ -284,6 +284,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "ur_type",
             description="Type/series of used UR robot.",
+            default_value="ur3e",
             choices=["ur3", "ur3e", "ur5", "ur5e", "ur10", "ur10e", "ur16e", "ur20", "ur30"],
         )
     )
@@ -370,7 +371,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "use_sim_time",
-            default_value="false",
+            default_value="true",
             description="Make MoveIt to use simulation time. This is needed for the trajectory planing in simulation.",
         )
     )
