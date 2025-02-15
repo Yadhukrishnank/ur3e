@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(ur_description REQUIRED)
 find_package(unity_robotics_demo_msgs REQUIRED)
 find_package(unity_ros_msgs REQUIRED)
+find_package(ur_robotiq REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
@@ -27,6 +28,7 @@ ament_target_dependencies(position_pub
   geometry_msgs
   unity_robotics_demo_msgs
   unity_ros_msgs
+  ur_robotiq
   moveit_ros_planning_interface
 )
 
@@ -37,6 +39,7 @@ ament_target_dependencies(position_publisher
   geometry_msgs
   unity_robotics_demo_msgs
   unity_ros_msgs
+  ur_robotiq
   moveit_ros_planning_interface
 )
 

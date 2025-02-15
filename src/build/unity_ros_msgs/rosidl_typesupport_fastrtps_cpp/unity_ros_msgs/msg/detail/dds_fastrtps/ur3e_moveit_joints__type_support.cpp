@@ -16,6 +16,30 @@
 
 
 // forward declaration of message dependencies and their conversion functions
+namespace geometry_msgs
+{
+namespace msg
+{
+namespace typesupport_fastrtps_cpp
+{
+bool cdr_serialize(
+  const geometry_msgs::msg::Pose &,
+  eprosima::fastcdr::Cdr &);
+bool cdr_deserialize(
+  eprosima::fastcdr::Cdr &,
+  geometry_msgs::msg::Pose &);
+size_t get_serialized_size(
+  const geometry_msgs::msg::Pose &,
+  size_t current_alignment);
+size_t
+max_serialized_size_Pose(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+}  // namespace typesupport_fastrtps_cpp
+}  // namespace msg
+}  // namespace geometry_msgs
+
 
 namespace unity_ros_msgs
 {
@@ -36,6 +60,10 @@ cdr_serialize(
   {
     cdr << ros_message.joints;
   }
+  // Member: pick_pose
+  geometry_msgs::msg::typesupport_fastrtps_cpp::cdr_serialize(
+    ros_message.pick_pose,
+    cdr);
   return true;
 }
 
@@ -49,6 +77,10 @@ cdr_deserialize(
   {
     cdr >> ros_message.joints;
   }
+
+  // Member: pick_pose
+  geometry_msgs::msg::typesupport_fastrtps_cpp::cdr_deserialize(
+    cdr, ros_message.pick_pose);
 
   return true;
 }
@@ -73,6 +105,11 @@ get_serialized_size(
     current_alignment += array_size * item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+  // Member: pick_pose
+
+  current_alignment +=
+    geometry_msgs::msg::typesupport_fastrtps_cpp::get_serialized_size(
+    ros_message.pick_pose, current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -106,6 +143,25 @@ max_serialized_size_UR3eMoveitJoints(
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
 
+  // Member: pick_pose
+  {
+    size_t array_size = 1;
+
+
+    last_member_size = 0;
+    for (size_t index = 0; index < array_size; ++index) {
+      bool inner_full_bounded;
+      bool inner_is_plain;
+      size_t inner_size =
+        geometry_msgs::msg::typesupport_fastrtps_cpp::max_serialized_size_Pose(
+        inner_full_bounded, inner_is_plain, current_alignment);
+      last_member_size += inner_size;
+      current_alignment += inner_size;
+      full_bounded &= inner_full_bounded;
+      is_plain &= inner_is_plain;
+    }
+  }
+
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
     // All members are plain, and type is not empty.
@@ -114,7 +170,7 @@ max_serialized_size_UR3eMoveitJoints(
     using DataType = unity_ros_msgs::msg::UR3eMoveitJoints;
     is_plain =
       (
-      offsetof(DataType, joints) +
+      offsetof(DataType, pick_pose) +
       last_member_size
       ) == ret_val;
   }

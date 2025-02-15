@@ -7,6 +7,11 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/unity_ros_msgs/msg/_ur3e_gripper_s.c"
   "../rosidl_generator_py/unity_ros_msgs/msg/_ur3e_moveit_joints.py"
   "../rosidl_generator_py/unity_ros_msgs/msg/_ur3e_moveit_joints_s.c"
+  "../rosidl_generator_py/unity_ros_msgs/msg/_ur3e_trajectory.py"
+  "../rosidl_generator_py/unity_ros_msgs/msg/_ur3e_trajectory_s.c"
+  "../rosidl_generator_py/unity_ros_msgs/srv/__init__.py"
+  "../rosidl_generator_py/unity_ros_msgs/srv/_ur_mover_service.py"
+  "../rosidl_generator_py/unity_ros_msgs/srv/_ur_mover_service_s.c"
   "CMakeFiles/unity_ros_msgs__py"
 )
 

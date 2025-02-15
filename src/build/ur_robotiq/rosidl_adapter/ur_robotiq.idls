@@ -1,0 +1,4 @@
+/home/yadhu/ur3e/src/build/ur_robotiq/rosidl_adapter/ur_robotiq:msg/UR3eGripper.idl
+/home/yadhu/ur3e/src/build/ur_robotiq/rosidl_adapter/ur_robotiq:msg/UR3eMoveitJoints.idl
+/home/yadhu/ur3e/src/build/ur_robotiq/rosidl_adapter/ur_robotiq:msg/UR3eTrajectory.idl
+/home/yadhu/ur3e/src/build/ur_robotiq/rosidl_adapter/ur_robotiq:srv/UrMoverService.idl

@@ -208,6 +208,9 @@ CMakeFiles/unity_ros_msgs__rosidl_generator_py.dir/rosidl_generator_py/unity_ros
  /usr/include/python3.10/numpy/__multiarray_api.h \
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/visibility_control.h \
  /home/yadhu/ur3e/src/build/unity_ros_msgs/rosidl_generator_c/unity_ros_msgs/msg/detail/ur3e_moveit_joints__struct.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.h \
  /home/yadhu/ur3e/src/build/unity_ros_msgs/rosidl_generator_c/unity_ros_msgs/msg/detail/ur3e_moveit_joints__functions.h \
  /home/yadhu/ur3e/src/build/unity_ros_msgs/rosidl_generator_c/unity_ros_msgs/msg/rosidl_generator_c__visibility_control.h \
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/primitives_sequence.h \

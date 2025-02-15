@@ -34,8 +34,23 @@ extern "C"
 {
 #endif
 
+#include "geometry_msgs/msg/detail/pose__functions.h"  // pick_pose
 
 // forward declare type support functions
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_unity_ros_msgs
+size_t get_serialized_size_geometry_msgs__msg__Pose(
+  const void * untyped_ros_message,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_unity_ros_msgs
+size_t max_serialized_size_geometry_msgs__msg__Pose(
+  bool & full_bounded,
+  bool & is_plain,
+  size_t current_alignment);
+
+ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_unity_ros_msgs
+const rosidl_message_type_support_t *
+  ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_fastrtps_c, geometry_msgs, msg, Pose)();
 
 
 using _UR3eMoveitJoints__ros_msg_type = unity_ros_msgs__msg__UR3eMoveitJoints;
@@ -56,6 +71,20 @@ static bool _UR3eMoveitJoints__cdr_serialize(
     cdr.serializeArray(array_ptr, size);
   }
 
+  // Field name: pick_pose
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, geometry_msgs, msg, Pose
+      )()->data);
+    if (!callbacks->cdr_serialize(
+        &ros_message->pick_pose, cdr))
+    {
+      return false;
+    }
+  }
+
   return true;
 }
 
@@ -73,6 +102,20 @@ static bool _UR3eMoveitJoints__cdr_deserialize(
     size_t size = 6;
     auto array_ptr = ros_message->joints;
     cdr.deserializeArray(array_ptr, size);
+  }
+
+  // Field name: pick_pose
+  {
+    const message_type_support_callbacks_t * callbacks =
+      static_cast<const message_type_support_callbacks_t *>(
+      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
+        rosidl_typesupport_fastrtps_c, geometry_msgs, msg, Pose
+      )()->data);
+    if (!callbacks->cdr_deserialize(
+        cdr, &ros_message->pick_pose))
+    {
+      return false;
+    }
   }
 
   return true;
@@ -101,6 +144,10 @@ size_t get_serialized_size_unity_ros_msgs__msg__UR3eMoveitJoints(
     current_alignment += array_size * item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+  // field.name pick_pose
+
+  current_alignment += get_serialized_size_geometry_msgs__msg__Pose(
+    &(ros_message->pick_pose), current_alignment);
 
   return current_alignment - initial_alignment;
 }
@@ -138,6 +185,25 @@ size_t max_serialized_size_unity_ros_msgs__msg__UR3eMoveitJoints(
     current_alignment += array_size * sizeof(uint64_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
+  // member: pick_pose
+  {
+    size_t array_size = 1;
+
+
+    last_member_size = 0;
+    for (size_t index = 0; index < array_size; ++index) {
+      bool inner_full_bounded;
+      bool inner_is_plain;
+      size_t inner_size;
+      inner_size =
+        max_serialized_size_geometry_msgs__msg__Pose(
+        inner_full_bounded, inner_is_plain, current_alignment);
+      last_member_size += inner_size;
+      current_alignment += inner_size;
+      full_bounded &= inner_full_bounded;
+      is_plain &= inner_is_plain;
+    }
+  }
 
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
@@ -147,7 +213,7 @@ size_t max_serialized_size_unity_ros_msgs__msg__UR3eMoveitJoints(
     using DataType = unity_ros_msgs__msg__UR3eMoveitJoints;
     is_plain =
       (
-      offsetof(DataType, joints) +
+      offsetof(DataType, pick_pose) +
       last_member_size
       ) == ret_val;
   }

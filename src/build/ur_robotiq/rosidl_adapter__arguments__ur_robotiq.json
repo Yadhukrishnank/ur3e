@@ -1,0 +1,9 @@
+{
+  "package_name": "ur_robotiq",
+  "non_idl_tuples": [
+    "/home/yadhu/ur3e/src/ur_robotiq:msg/UR3eGripper.msg",
+    "/home/yadhu/ur3e/src/ur_robotiq:msg/UR3eMoveitJoints.msg",
+    "/home/yadhu/ur3e/src/ur_robotiq:msg/UR3eTrajectory.msg",
+    "/home/yadhu/ur3e/src/ur_robotiq:srv/UrMoverService.srv"
+  ]
+}

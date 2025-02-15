@@ -1,0 +1,52 @@
+Built target ament_cmake_python_copy_ur_moveit_config
+running egg_info
+writing ur_moveit_config.egg-info/PKG-INFO
+writing dependency_links to ur_moveit_config.egg-info/dependency_links.txt
+writing top-level names to ur_moveit_config.egg-info/top_level.txt
+reading manifest file 'ur_moveit_config.egg-info/SOURCES.txt'
+writing manifest file 'ur_moveit_config.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_ur_moveit_config_egg
+-- Install configuration: ""
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/config
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/config/controllers.yaml
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/config/kinematics.yaml
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/config/joint_limits.yaml
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/config/ur_servo.yaml
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/config/ompl_planning.yaml
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/launch
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/launch/ur_moveit.launch.py
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/rviz
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/rviz/view_robot.rviz
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/srdf
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/srdf/ur_macro.srdf.xacro
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/srdf/ur.srdf.xacro
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/environment/pythonpath.sh
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/environment/pythonpath.dsv
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/local/lib/python3.10/dist-packages/ur_moveit_config-2.2.16-py3.10.egg-info
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/local/lib/python3.10/dist-packages/ur_moveit_config-2.2.16-py3.10.egg-info/top_level.txt
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/local/lib/python3.10/dist-packages/ur_moveit_config-2.2.16-py3.10.egg-info/PKG-INFO
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/local/lib/python3.10/dist-packages/ur_moveit_config-2.2.16-py3.10.egg-info/dependency_links.txt
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/local/lib/python3.10/dist-packages/ur_moveit_config-2.2.16-py3.10.egg-info/SOURCES.txt
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/local/lib/python3.10/dist-packages/ur_moveit_config
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/local/lib/python3.10/dist-packages/ur_moveit_config/launch_common.py
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/local/lib/python3.10/dist-packages/ur_moveit_config/__init__.py
+Listing '/home/yadhu/ur3e/src/install/ur_moveit_config/local/lib/python3.10/dist-packages/ur_moveit_config'...
+Compiling '/home/yadhu/ur3e/src/install/ur_moveit_config/local/lib/python3.10/dist-packages/ur_moveit_config/__init__.py'...
+Compiling '/home/yadhu/ur3e/src/install/ur_moveit_config/local/lib/python3.10/dist-packages/ur_moveit_config/launch_common.py'...
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/local/lib/python3.10/dist-packages/launch_common.py
+Compiling '/home/yadhu/ur3e/src/install/ur_moveit_config/local/lib/python3.10/dist-packages/launch_common.py'...
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ament_index/resource_index/package_run_dependencies/ur_moveit_config
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ament_index/resource_index/parent_prefix_path/ur_moveit_config
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/environment/ament_prefix_path.sh
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/environment/ament_prefix_path.dsv
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/environment/path.sh
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/environment/path.dsv
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/local_setup.bash
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/local_setup.sh
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/local_setup.zsh
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/local_setup.dsv
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/package.dsv
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ament_index/resource_index/packages/ur_moveit_config
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/cmake/ur_moveit_configConfig.cmake
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/cmake/ur_moveit_configConfig-version.cmake
+-- Installing: /home/yadhu/ur3e/src/install/ur_moveit_config/share/ur_moveit_config/package.xml

@@ -2,7 +2,7 @@
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
 #include <geometry_msgs/msg/pose.hpp>
-#include <unity_ros_msgs/srv/ur_mover_service.hpp>
+#include <ur_robotiq/srv/ur_mover_service.hpp>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 
 using namespace std::chrono_literals;
@@ -13,7 +13,7 @@ public:
     UR3eMoveItServer() : Node("ur3e_moveit_server")
     {
         // Initialize service
-        service_ = create_service<unity_ros_msgs::srv::UrMoverService>(
+        service_ = create_service<ur_robotiq::srv::UrMoverService>(
             "ur3e_moveit",
             std::bind(&UR3eMoveItServer::handleServiceRequest, this,
                      std::placeholders::_1, std::placeholders::_2));
@@ -82,8 +82,8 @@ private:
     }
 
     void handleServiceRequest(
-        const std::shared_ptr<unity_ros_msgs::srv::UrMoverService::Request> request,
-        const std::shared_ptr<unity_ros_msgs::srv::UrMoverService::Response> response)
+        const std::shared_ptr<ur_robotiq::srv::UrMoverService::Request> request,
+        const std::shared_ptr<ur_robotiq::srv::UrMoverService::Response> response)
     {
         RCLCPP_INFO(get_logger(), "Received service request");
 
@@ -171,7 +171,7 @@ private:
     // MoveIt components
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_arm_;
     std::shared_ptr<moveit::planning_interface::PlanningSceneInterface> planning_scene_interface_;
-    rclcpp::Service<unity_ros_msgs::srv::UrMoverService>::SharedPtr service_;
+    rclcpp::Service<ur_robotiq::srv::UrMoverService>::SharedPtr service_;
 };
 
 int main(int argc, char** argv)

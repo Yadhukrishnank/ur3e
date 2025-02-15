@@ -1,0 +1,4 @@
+source;share/ur_robotiq/environment/ament_prefix_path.sh
+source;share/ur_robotiq/environment/library_path.sh
+source;share/ur_robotiq/environment/path.sh
+source;share/ur_robotiq/environment/pythonpath.sh

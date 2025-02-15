@@ -25,6 +25,9 @@ CMakeFiles/unity_ros_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/unity_r
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.h \
  /home/yadhu/ur3e/src/build/unity_ros_msgs/rosidl_generator_c/unity_ros_msgs/msg/detail/ur3e_moveit_joints__type_support.h \
  /home/yadhu/ur3e/src/build/unity_ros_msgs/rosidl_generator_c/unity_ros_msgs/msg/rosidl_generator_c__visibility_control.h \
  /opt/ros/humble/include/rosidl_typesupport_c/rosidl_typesupport_c/identifier.h \

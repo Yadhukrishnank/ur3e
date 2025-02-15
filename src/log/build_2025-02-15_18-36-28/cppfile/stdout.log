@@ -1,0 +1,26 @@
+[35m[1mConsolidate compiler generated dependencies of target position_publisher[0m
+[ 33%] Built target position_pub
+[ 66%] Built target simple_moveit_interface
+[ 83%] [32mBuilding CXX object CMakeFiles/position_publisher.dir/src/position_publisher.cpp.o[0m
+[100%] [32m[1mLinking CXX executable position_publisher[0m
+[100%] Built target position_publisher
+-- Install configuration: ""
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/lib/cppfile/position_pub
+-- Installing: /home/yadhu/ur3e/src/install/cppfile/lib/cppfile/position_publisher
+-- Set runtime path of "/home/yadhu/ur3e/src/install/cppfile/lib/cppfile/position_publisher" to ""
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/lib/cppfile/simple_moveit_interface
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/ament_index/resource_index/package_run_dependencies/cppfile
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/ament_index/resource_index/parent_prefix_path/cppfile
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/cppfile/environment/ament_prefix_path.sh
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/cppfile/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/cppfile/environment/path.sh
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/cppfile/environment/path.dsv
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/cppfile/local_setup.bash
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/cppfile/local_setup.sh
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/cppfile/local_setup.zsh
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/cppfile/local_setup.dsv
+-- Installing: /home/yadhu/ur3e/src/install/cppfile/share/cppfile/package.dsv
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/ament_index/resource_index/packages/cppfile
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/cppfile/cmake/cppfileConfig.cmake
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/cppfile/cmake/cppfileConfig-version.cmake
+-- Up-to-date: /home/yadhu/ur3e/src/install/cppfile/share/cppfile/package.xml

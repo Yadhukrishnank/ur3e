@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from ur_robotiq/srv/UrMoverService.srv
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+#include "moveit_msgs/msg/RobotTrajectory.idl"
+#include "ur_robotiq/msg/UR3eMoveitJoints.idl"
+
+module ur_robotiq {
+  module srv {
+    struct UrMoverService_Request {
+      ur_robotiq::msg::UR3eMoveitJoints joints_input;
+
+      geometry_msgs::msg::Pose pick_pose;
+    };
+    struct UrMoverService_Response {
+      sequence<moveit_msgs::msg::RobotTrajectory> trajectories;
+    };
+  };
+};

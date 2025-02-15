@@ -18,6 +18,7 @@
   <depend>moveit_ros_planning_interface</depend>
   <depend>unity_ros_msgs</depend>
   <depend>unity_robotics_demo_msgs</depend>
+  <depend>ur_robotiq</depend>
 
 
   <test_depend>ament_lint_auto</test_depend>
