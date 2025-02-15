@@ -6,7 +6,7 @@
 void move_robot_to_pose(const std::shared_ptr<rclcpp::Node>& node,
                         const geometry_msgs::msg::Pose& target_pose) {
     // Initialize MoveGroupInterface for the UR manipulator
-    static const std::string ARM_GROUP = "ur_manipulator";
+    static const std::string ARM_GROUP = "arm";
     auto arm_move_group = std::make_shared<moveit::planning_interface::MoveGroupInterface>(node, ARM_GROUP);
 
     // Set the target pose

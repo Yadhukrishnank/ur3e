@@ -6,9 +6,7 @@
         "limitSymbolsToIncludedHeaders": false
       },
       "includePath": [
-        "/home/yadhu/ur3e/install/unity_robotics_demo_msgs/include/**",
         "/opt/ros/humble/include/**",
-        "/home/yadhu/ur3e/src/unity_ros_msgs/include/**",
         "/usr/include/**"
       ],
       "name": "ROS",

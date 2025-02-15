@@ -11,12 +11,15 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(builtin_interfaces REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(moveit_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/UR3eGripper.msg"
   "msg/UR3eMoveitJoints.msg"
-  DEPENDENCIES builtin_interfaces geometry_msgs std_msgs
- )
+  "msg/UR3eTrajectory.msg"
+  "srv/UrMoverService.srv"
+  DEPENDENCIES builtin_interfaces geometry_msgs std_msgs moveit_msgs  # <-- Add moveit_msgs here
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
