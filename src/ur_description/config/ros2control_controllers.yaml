@@ -27,7 +27,7 @@ joint_trajectory_controller:
       - wrist_1_joint
       - wrist_2_joint
       - wrist_3_joint
-      - robotiq_85_left_knuckle_joint
+
     command_interfaces:
       - position
     state_interfaces:
@@ -70,5 +70,10 @@ forward_position_controller:
 gripper_action_controller:
   ros__parameters:
     joint: robotiq_85_left_knuckle_joint
-    use_effort_interface: true
-    use_speed_interface: true
+    use_effort_interface: true  # Use effort for Gazebo physics
+    use_speed_interface: false  # Disable speed if using effort
+    pid:
+      p: 100.0
+      i: 0.0
+      d: 1.0
+    max_effort: 50.0  # Adjust based on your gripper
