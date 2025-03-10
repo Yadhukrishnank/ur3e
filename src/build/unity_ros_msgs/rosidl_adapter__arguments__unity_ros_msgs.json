@@ -1,9 +1,0 @@
-{
-  "package_name": "unity_ros_msgs",
-  "non_idl_tuples": [
-    "/home/yadhu/ur3e/src/unity_ros_msgs:msg/UR3eGripper.msg",
-    "/home/yadhu/ur3e/src/unity_ros_msgs:msg/UR3eMoveitJoints.msg",
-    "/home/yadhu/ur3e/src/unity_ros_msgs:msg/UR3eTrajectory.msg",
-    "/home/yadhu/ur3e/src/unity_ros_msgs:srv/UrMoverService.srv"
-  ]
-}
