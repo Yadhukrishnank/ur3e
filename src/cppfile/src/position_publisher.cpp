@@ -1,9 +1,8 @@
+#include <memory>
 #include <rclcpp/rclcpp.hpp>
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
-#include <geometry_msgs/msg/pose.hpp>
 #include <ur_robotiq/srv/ur_mover_service.hpp>
-#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 
 using namespace std::chrono_literals;
 
@@ -12,36 +11,49 @@ class UR3eMoveItServer : public rclcpp::Node
 public:
     UR3eMoveItServer() : Node("ur3e_moveit_server")
     {
-        // Initialize service
+        // Initialize the service
         service_ = create_service<ur_robotiq::srv::UrMoverService>(
             "ur3e_moveit",
-            std::bind(&UR3eMoveItServer::handleServiceRequest, this,
+            std::bind(&UR3eMoveItServer::handle_service_request, this,
                      std::placeholders::_1, std::placeholders::_2));
 
-        RCLCPP_INFO(get_logger(), "Ready to plan trajectories");
+        RCLCPP_INFO(get_logger(), "UR3e MoveIt Server initialized and ready");
     }
 
     void initialize()
     {
-        // Initialize MoveIt components after construction
+        // Initialize MoveGroupInterface for the arm
         move_group_arm_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(
-            shared_from_this(),  // Now safe to use shared_from_this()
-            "arm"
-        );
-        
+            shared_from_this(), "ur_manipulator");
+
+        // Initialize PlanningSceneInterface
         planning_scene_interface_ = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
+
+        // Configure planning parameters
+        move_group_arm_->setPlanningTime(20.0);
+        move_group_arm_->setNumPlanningAttempts(5);
+        move_group_arm_->setMaxVelocityScalingFactor(0.5);
+        move_group_arm_->setMaxAccelerationScalingFactor(0.3);
 
         // Add ground collision object
         addGroundCollision();
+
+        // Set joint names according to the robot configuration
+        joint_names_ = {
+            "shoulder_pan_joint", 
+            "shoulder_lift_joint",
+            "elbow_joint",
+            "wrist_1_joint",
+            "wrist_2_joint",
+            "wrist_3_joint"
+        };
     }
 
 private:
+    // Add a ground collision object to the planning scene
     void addGroundCollision()
     {
-        // Add ground plane to planning scene
-        std::vector<moveit_msgs::msg::CollisionObject> collision_objects;
         moveit_msgs::msg::CollisionObject ground;
-
         ground.id = "ground";
         ground.header.frame_id = "world";
         ground.primitives.resize(1);
@@ -53,135 +65,118 @@ private:
         ground.primitive_poses.push_back(ground_pose);
         ground.operation = moveit_msgs::msg::CollisionObject::ADD;
 
-        collision_objects.push_back(ground);
+        std::vector<moveit_msgs::msg::CollisionObject> collision_objects = {ground};
         planning_scene_interface_->applyCollisionObjects(collision_objects);
+
+        RCLCPP_INFO(get_logger(), "Added ground collision object");
     }
 
-    moveit::planning_interface::MoveGroupInterface::Plan planTrajectory(
-        const geometry_msgs::msg::Pose& target_pose,
-        const std::vector<double>& start_joint_angles)
-    {
-        // Set start state
-        moveit::core::RobotState start_state(*move_group_arm_->getCurrentState());
-        start_state.setJointGroupPositions("arm", start_joint_angles);
-        move_group_arm_->setStartState(start_state);
-
-        // Set pose target
-        move_group_arm_->setPoseTarget(target_pose);
-
-        // Plan trajectory
-        moveit::planning_interface::MoveGroupInterface::Plan plan;
-        auto success = (move_group_arm_->plan(plan) == moveit::core::MoveItErrorCode::SUCCESS);
-
-        if (!success)
-        {
-            throw std::runtime_error("Failed to plan trajectory");
-        }
-
-        return plan;
-    }
-
-    void handleServiceRequest(
+    // Handle the service request
+    void handle_service_request(
         const std::shared_ptr<ur_robotiq::srv::UrMoverService::Request> request,
         const std::shared_ptr<ur_robotiq::srv::UrMoverService::Response> response)
     {
-        RCLCPP_INFO(get_logger(), "Received service request");
+        RCLCPP_INFO(get_logger(), "Received new motion request");
 
-        // Convert fixed-size array to vector
-        const std::vector<double> start_joints(
-            request->joints_input.joints.begin(),
-            request->joints_input.joints.end()
-        );
+        // Stop any ongoing motion and clear previous targets
+        move_group_arm_->stop();
+        move_group_arm_->clearPoseTargets();
 
-        const geometry_msgs::msg::Pose pick_pose = request->pick_pose;
-        const std::vector<double> sideways_offsets = {0.05, -0.05, 0.10, -0.10};
-
-        bool planning_succeeded = false;
-        geometry_msgs::msg::Pose target_pose;
-        moveit::planning_interface::MoveGroupInterface::Plan pre_grasp_plan;
-
-        // Try direct approach first
-        try
-        {
-            pre_grasp_plan = planTrajectory(pick_pose, start_joints);
-            target_pose = pick_pose;
-            planning_succeeded = true;
-            RCLCPP_INFO(get_logger(), "Direct plan succeeded");
-        }
-        catch (const std::exception& e)
-        {
-            RCLCPP_WARN(get_logger(), "Direct plan failed: %s. Trying offsets...", e.what());
-        }
-
-        // Try sideways offsets if direct approach failed
-        if (!planning_succeeded)
-        {
-            for (const auto offset : sideways_offsets)
-            {
-                try
-                {
-                    geometry_msgs::msg::Pose adjusted_pose = pick_pose;
-                    adjusted_pose.position.x += offset;
-                    
-                    RCLCPP_INFO(get_logger(), "Trying offset: %.2f", offset);
-                    pre_grasp_plan = planTrajectory(adjusted_pose, start_joints);
-                    target_pose = adjusted_pose;
-                    planning_succeeded = true;
-                    RCLCPP_INFO(get_logger(), "Offset plan succeeded with: %.2f", offset);
-                    break;
-                }
-                catch (const std::exception& e)
-                {
-                    RCLCPP_WARN(get_logger(), "Offset %.2f failed: %s", offset, e.what());
-                }
-            }
-        }
-
-        if (!planning_succeeded)
-        {
-            RCLCPP_ERROR(get_logger(), "All planning attempts failed");
+        // Validate joint input
+        if (request->joints_input.joints.size() != 6) {
+            RCLCPP_ERROR(get_logger(), "Invalid joint input size. Expected 6, got %zu", request->joints_input.joints.size());
             return;
         }
 
-        // Plan grasp trajectory
-        try
-        {
-            geometry_msgs::msg::Pose grasp_pose = target_pose;
-            grasp_pose.position.z -= 0.05;
+        std::vector<double> joint_positions(request->joints_input.joints.begin(), request->joints_input.joints.end());
 
-            // Get final joint positions from pre-grasp plan
-            const auto& last_point = pre_grasp_plan.trajectory_.joint_trajectory.points.back();
-            std::vector<double> grasp_start_joints(
-                last_point.positions.begin(),
-                last_point.positions.end());
-
-            auto grasp_plan = planTrajectory(grasp_pose, grasp_start_joints);
-
-            // Add plans to response
-            response->trajectories.push_back(pre_grasp_plan.trajectory_);
-            response->trajectories.push_back(grasp_plan.trajectory_);
-            RCLCPP_INFO(get_logger(), "Successfully planned both trajectories");
+        // Step 1: Move to the specified joint positions
+        if (!moveToJointPositions(joint_positions)) {
+            RCLCPP_ERROR(get_logger(), "Failed to move to joint positions");
+            return;
         }
-        catch (const std::exception& e)
-        {
-            RCLCPP_ERROR(get_logger(), "Grasp planning failed: %s", e.what());
+
+        // Step 2: Move to the target pose and return the final trajectory
+        if (!moveToTargetPose(request->pick_pose, response)) {
+            RCLCPP_ERROR(get_logger(), "Failed to move to target pose");
         }
     }
 
-    // MoveIt components
+    // Move to the specified joint positions
+    bool moveToJointPositions(const std::vector<double>& joint_positions)
+    {
+        RCLCPP_INFO(get_logger(), "Moving to specified joint positions");
+        move_group_arm_->setJointValueTarget(joint_positions);
+
+        moveit::planning_interface::MoveGroupInterface::Plan joint_plan;
+        auto joint_plan_result = move_group_arm_->plan(joint_plan);
+
+        if (joint_plan_result != moveit::core::MoveItErrorCode::SUCCESS) {
+            RCLCPP_ERROR(get_logger(), "Joint motion planning failed with error code: %d", joint_plan_result.val);
+            return false;
+        }
+
+        auto joint_execute_result = move_group_arm_->execute(joint_plan);
+        if (joint_execute_result != moveit::core::MoveItErrorCode::SUCCESS) {
+            RCLCPP_ERROR(get_logger(), "Joint motion execution failed with error code: %d", joint_execute_result.val);
+            return false;
+        }
+
+        RCLCPP_INFO(get_logger(), "Joint motion execution completed");
+        return true;
+    }
+
+    // Move to the target pose and return the final trajectory
+    bool moveToTargetPose(const geometry_msgs::msg::Pose& target_pose,
+                          const std::shared_ptr<ur_robotiq::srv::UrMoverService::Response> response)
+    {
+        RCLCPP_INFO(get_logger(), "Moving to target pose");
+
+        move_group_arm_->setPoseTarget(target_pose);
+
+        moveit::planning_interface::MoveGroupInterface::Plan pose_plan;
+        auto pose_plan_result = move_group_arm_->plan(pose_plan);
+
+        if (pose_plan_result != moveit::core::MoveItErrorCode::SUCCESS) {
+            RCLCPP_ERROR(get_logger(), "Pose motion planning failed with error code: %d", pose_plan_result.val);
+            return false;
+        }
+
+        // Retry execution up to 3 times
+        int retry_count = 3;
+        while (retry_count > 0) {
+            auto pose_execute_result = move_group_arm_->execute(pose_plan);
+            if (pose_execute_result == moveit::core::MoveItErrorCode::SUCCESS) {
+                RCLCPP_INFO(get_logger(), "Pose motion execution completed");
+                response->trajectories.push_back(pose_plan.trajectory_);
+                return true;
+            } else {
+                RCLCPP_WARN(get_logger(), "Pose motion execution failed. Retries left: %d", retry_count);
+                retry_count--;
+            }
+        }
+
+        RCLCPP_ERROR(get_logger(), "Pose motion execution failed after retries");
+        return false;
+    }
+
+    // Member variables
     std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_arm_;
     std::shared_ptr<moveit::planning_interface::PlanningSceneInterface> planning_scene_interface_;
     rclcpp::Service<ur_robotiq::srv::UrMoverService>::SharedPtr service_;
+    std::vector<std::string> joint_names_;
 };
 
 int main(int argc, char** argv)
 {
     rclcpp::init(argc, argv);
     auto node = std::make_shared<UR3eMoveItServer>();
-    node->initialize();  // Initialize MoveIt components after construction
-    rclcpp::executors::SingleThreadedExecutor executor;
+    node->initialize();
+    
+    rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(node);
     executor.spin();
+    
     rclcpp::shutdown();
     return 0;
 }
